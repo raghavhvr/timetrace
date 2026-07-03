@@ -1,0 +1,28 @@
+name: Weekly commit
+
+on:
+  schedule:
+    # Every Monday at 12:00 UTC
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  weekly-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Append entry and commit
+        run: |
+          message="Weekly new commit $(date -u +%Y-%m-%d)"
+          echo "- Added new commit $message" >> README.md
+          # Author email must be associated with the GitHub account
+          # for the commit to count on the contribution graph.
+          git config user.name "raghavhvr"
+          git config user.email "raghavhvr@outlook.com"
+          git add README.md
+          git commit -m "$message"
+          git push

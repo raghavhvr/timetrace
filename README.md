@@ -4,6 +4,11 @@ Want to improve your GitHub vanity metrics?
 Run `run.sh`.
 It will create one commit per week for the last 104 weeks.
 
+Going forward, the [Weekly commit workflow](.github/workflows/weekly-commit.yml)
+runs automatically every Monday at 12:00 UTC and adds one new commit,
+so the repo keeps itself active. It can also be triggered manually from
+the Actions tab.
+
 ## Commits for the last 104 weeks:
 - Added new commit Weekly new commit 732 days ago
 - Added new commit Weekly new commit 726 days ago
